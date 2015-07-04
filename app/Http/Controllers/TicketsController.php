@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ticket;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,7 +19,9 @@ class TicketsController extends Controller
     {
         $name = \Auth::user()->name;
 
-        return view('tickets.view', compact('name'));
+        $tickets = Ticket::latest()->get();
+
+        return view('tickets.view', compact('name', 'tickets'));
     }
 
     /**
@@ -28,7 +31,9 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        //
+        $name = \Auth::user()->name;
+
+        return view('tickets.create', compact('name'));
     }
 
     /**
@@ -36,9 +41,16 @@ class TicketsController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+//        $ticket = new Ticket($request->all());
+
+//        \Auth::user()->tickets()->save($ticket);
+
+        Ticket::create($request->all());
+
+        return redirect('tickets');
+
     }
 
     /**
@@ -49,7 +61,12 @@ class TicketsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $name = \Auth::user()->name;
+
+        $ticket = Ticket::findOrFail($id);
+
+        return view('tickets.show', compact('name', 'ticket'));
     }
 
     /**

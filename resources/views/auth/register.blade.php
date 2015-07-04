@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Register</title>
+    <title>Helpdesk | Register</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -22,10 +22,8 @@
     <div>
         <div>
 
-            <h1 class="logo-name">IN+</h1>
-
         </div>
-        <h3>Register to IN+</h3>
+        <h3>Register to SBTS Helpdesk</h3>
         <p>Create account to see it in action.</p>
         <form class="m-t" role="form" method="POST" action="{{ url('/auth/register') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -57,7 +55,6 @@
             </ul>
         @endif
 
-        <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
     </div>
 </div>
 

@@ -30,9 +30,7 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
-                             </span>
+                    <div class="dropdown profile-element">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ $name }}</strong>
                              </span> <span class="text-muted text-xs block">Web Developer <b class="caret"></b></span> </span> </a>
@@ -46,14 +44,20 @@
                         SBTS
                     </div>
                 </li>
-                <li class="active">
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Sample</span> <span class="fa arrow"></span></a>
+                <li>
+                    <a href="/home"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="/tickets"><i class="fa fa-diamond"></i> <span class="nav-label">Tickets</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li class="active"><a href="index.html">Sample 1</a></li>
+                        <li><a href="/tickets/create">Create Ticket</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/tickets"><i class="fa fa-diamond"></i> <span class="nav-label">Tickets</span></a>
+                    <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">App Views</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="/profile">Profile</a></li>
+                    </ul>
                 </li>
 
             </ul>
@@ -150,9 +154,6 @@
             <div class="col-lg-12">
 
                 <div class="footer fixed">
-                    <div class="pull-right">
-                        10GB of <strong>250GB</strong> Free.
-                    </div>
                     <div>
                         <strong>Copyright</strong> SBTS &copy; 2015-2016
                     </div>
