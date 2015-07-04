@@ -15,3 +15,8 @@ Route::get('/', 'PagesController@home');
 Route::get('profile', 'PagesController@profile');
 
 Route::resource('tickets', 'TicketsController');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);

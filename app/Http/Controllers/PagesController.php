@@ -11,11 +11,15 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('pages.home');
+        $name = \Auth::user()->name;
+
+        return view('pages.home', compact('name'));
     }
 
     public function profile()
     {
-        return view('pages.profile');
+        $name = \Auth::user()->name;
+
+        return view('pages.profile', compact('name'));
     }
 }

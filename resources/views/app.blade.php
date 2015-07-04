@@ -8,17 +8,17 @@
 
     <title>SBTS | HelpDesk</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +34,7 @@
                             <img alt="image" class="img-circle" src="img/profile_small.jpg" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Kyle Nieber</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ $name }}</strong>
                              </span> <span class="text-muted text-xs block">Web Developer <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="profile.html">Profile</a></li>
@@ -43,7 +43,7 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        IN+
+                        SBTS
                     </div>
                 </li>
                 <li class="active">
@@ -125,7 +125,7 @@
 
 
                     <li>
-                        <a href="login.html">
+                        <a href="/auth/logout">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
@@ -136,19 +136,15 @@
         <!-- End Top Nav Bar -->
 
 
-        <div class="row  border-bottom white-bg dashboard-header">
+        <!-- Page Header -->
+        @yield('pageHeader')
+        <!-- End Page Header -->
 
-            <div class="col-sm-3">
-                <h2>Welcome Kyle</h2>
-            </div>
-            <div class="col-sm-6">
 
-            </div>
-            <div class="col-sm-3">
 
-            </div>
-
-        </div>
+        <!-- Page Content -->
+            @yield('pageContent')
+        <!-- End Page Content -->
 
         <div class="row">
             <div class="col-lg-12">
@@ -208,19 +204,6 @@
 <script src="js/plugins/toastr/toastr.min.js"></script>
 
 
-<script>
-    $(document).ready(function() {
-        setTimeout(function() {
-            toastr.options = {
-                closeButton: true,
-                progressBar: true,
-                showMethod: 'slideDown',
-                timeOut: 3000
-            };
-            toastr.success('Welcome to the SBTS Helpdesk');
 
-        }, 1300);
-    });
-</script>
 </body>
 </html>
