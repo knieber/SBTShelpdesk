@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@home');
+Route::get('profile', 'PagesController@profile');
+
+Route::resource('tickets', 'TicketsController');
