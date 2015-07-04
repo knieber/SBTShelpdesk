@@ -16,7 +16,9 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        //
+        $name = \Auth::user()->name;
+
+        return view('tickets.view', compact('name'));
     }
 
     /**

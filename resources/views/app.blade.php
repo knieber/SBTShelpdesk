@@ -37,7 +37,7 @@
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ $name }}</strong>
                              </span> <span class="text-muted text-xs block">Web Developer <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="/profile">Profile</a></li>
                             <li class="divider"></li>
                             <li><a href="login.html">Logout</a></li>
                         </ul>
@@ -53,7 +53,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Tickets</span></a>
+                    <a href="/tickets"><i class="fa fa-diamond"></i> <span class="nav-label">Tickets</span></a>
                 </li>
 
             </ul>

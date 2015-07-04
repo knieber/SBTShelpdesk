@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
-Route::get('profile', 'PagesController@profile');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'PagesController@home');
+    Route::get('/home', 'PagesController@home');
+    Route::get('profile', 'PagesController@profile');
 
-Route::resource('tickets', 'TicketsController');
+    Route::resource('tickets', 'TicketsController');
+
+});
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

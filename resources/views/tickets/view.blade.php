@@ -2,14 +2,12 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'My Profile', 'pageLocation' => 'My Profile'])
+        @include('partials._pageheader', ['header' => 'My Tickets', 'pageLocation' => 'My Tickets'])
 
     @endsection
 
     @section('pageContent')
 
     @endsection
-
-
 
 @stop
