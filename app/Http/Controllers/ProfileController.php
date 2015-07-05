@@ -47,11 +47,10 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $name = \Auth::user()->name;
 
-        $user = \App\User::with('profile')->findOrFail($id);
+        $user = \App\User::findOrFail($id);
 
-        return view('profile.show', compact('name', 'user'));
+        return view('profile.show', compact('user'));
     }
 
     /**

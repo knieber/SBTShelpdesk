@@ -19,13 +19,13 @@
                             <div class="ibox-content no-padding border-left-right">
                             </div>
                             <div class="ibox-content profile-content">
-                                <h4><strong>{{ $user->profile->first_name }} {{ $user->profile->last_name }}</strong></h4>
-                                <p><i class="fa fa-map-marker"></i> {{ $user->profile->address }}</p>
+                                <h4><strong>{{ $user->first_name }} {{ $user->last_name }}</strong></h4>
+                                <p><i class="fa fa-map-marker"></i> {{ $user->address }}</p>
                                 <h5>
                                     About me
                                 </h5>
                                 <p>
-                                    {{ $user->profile->bio }}
+                                    {{ $user->bio }}
                                 </p>
                                 <div class="row m-t-lg">
                                     <div class="col-md-4">

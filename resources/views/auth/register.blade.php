@@ -29,7 +29,13 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name" name="name" required="">
+                <input type="text" class="form-control" placeholder="First Name" name="first_name" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Last Name" name="last_name" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" name="username" required="">
             </div>
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" name="email" required="">

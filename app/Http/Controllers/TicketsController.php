@@ -17,11 +17,10 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        $name = \Auth::user()->name;
 
         $tickets = \Auth::user()->tickets;
 
-        return view('tickets.view', compact('name', 'tickets'));
+        return view('tickets.view', compact('tickets'));
     }
 
     /**
@@ -31,9 +30,8 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        $name = \Auth::user()->name;
 
-        return view('tickets.create', compact('name'));
+        return view('tickets.create');
     }
 
     /**
@@ -60,11 +58,9 @@ class TicketsController extends Controller
     public function show($id)
     {
 
-        $name = \Auth::user()->name;
-
         $ticket = Ticket::findOrFail($id);
 
-        return view('tickets.show', compact('name', 'ticket'));
+        return view('tickets.show', compact('ticket'));
     }
 
     /**

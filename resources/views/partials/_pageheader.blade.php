@@ -4,7 +4,7 @@
         <h2>{{ $header }}</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">Home</a>
+                <a href="/home">Home</a>
             </li>
             <li class="active">
                 <strong>{{ $pageLocation }}</strong>
