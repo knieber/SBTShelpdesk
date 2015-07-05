@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profile', 'PagesController@profile');
 
     Route::resource('tickets', 'TicketsController');
+    Route::resource('profile', 'ProfileController');
 
 });
 

@@ -2,7 +2,7 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'My Tickets', 'pageLocation' => 'My Tickets'])
+        @include('partials._pageheader', ['header' => 'My Tickets', 'pageLocation' => 'My Tickets', 'actionArea' => ''])
 
     @endsection
 

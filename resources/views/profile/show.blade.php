@@ -2,7 +2,7 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'My Profile', 'pageLocation' => 'My Profile'])
+        @include('partials._pageheader', ['header' => 'My Profile', 'pageLocation' => 'My Profile', 'actionArea' => ''])
 
     @endsection
 
@@ -19,13 +19,13 @@
                             <div class="ibox-content no-padding border-left-right">
                             </div>
                             <div class="ibox-content profile-content">
-                                <h4><strong>{{ $name }}</strong></h4>
-                                <p><i class="fa fa-map-marker"></i> Louisville, Ky</p>
+                                <h4><strong>{{ $user->profile->first_name }} {{ $user->profile->last_name }}</strong></h4>
+                                <p><i class="fa fa-map-marker"></i> {{ $user->profile->address }}</p>
                                 <h5>
                                     About me
                                 </h5>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+                                    {{ $user->profile->bio }}
                                 </p>
                                 <div class="row m-t-lg">
                                     <div class="col-md-4">

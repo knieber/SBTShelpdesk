@@ -3,7 +3,7 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'Create a Ticket', 'pageLocation' => 'Create A Ticket'])
+        @include('partials._pageheader', ['header' => 'Create a Ticket', 'pageLocation' => 'Create A Ticket', 'actionArea' => ''])
 
     @endsection
 

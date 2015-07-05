@@ -12,17 +12,18 @@ class CreateUserProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_profiles', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->text('github');
-            $table->text('address');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('address')->nullable();
+            $table->string('github')->nullable();
+            $table->text('bio')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+
         });
     }
 
@@ -33,6 +34,6 @@ class CreateUserProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_profiles');
+        Schema::drop('profiles');
     }
 }

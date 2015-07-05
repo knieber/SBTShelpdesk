@@ -2,7 +2,7 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'Welcome' . ' ' . $name, 'pageLocation' => ''])
+        @include('partials._pageheader', ['header' => 'Welcome' . ' ' . $name, 'pageLocation' => '', 'actionArea' => ''])
 
     @endsection
 

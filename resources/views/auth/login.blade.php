@@ -26,7 +26,7 @@
 
         </div>
         <h3>Welcome to the SBTS Helpdesk</h3>
-        <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+        <p>The SBTS Helpdesk is designed to help students and staff efficiently and effectively.
             <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
         </p>
         <p>Login in. To see it in action.</p>
