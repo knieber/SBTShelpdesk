@@ -35,7 +35,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function tickets()
     {
-        $this->hasMany('App\Ticket');
+        return $this->hasMany('App\Ticket', 'user_id');
     }
 
     public function profile()

@@ -19,7 +19,7 @@ class TicketsController extends Controller
     {
         $name = \Auth::user()->name;
 
-        $tickets = Ticket::latest()->get();
+        $tickets = \Auth::user()->tickets;
 
         return view('tickets.view', compact('name', 'tickets'));
     }
@@ -43,11 +43,9 @@ class TicketsController extends Controller
      */
     public function store(Request $request)
     {
-//        $ticket = new Ticket($request->all());
+        $ticket = new Ticket($request->all());
 
-//        \Auth::user()->tickets()->save($ticket);
-
-        Ticket::create($request->all());
+        \Auth::user()->tickets()->save($ticket);
 
         return redirect('tickets');
 

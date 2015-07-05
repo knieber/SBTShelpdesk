@@ -54,8 +54,8 @@
 
                                     <td>{{ $ticket->id }}</td>
                                     <td>{{ $ticket->desc }}</td>
-                                    <td>{{ $ticket->name }}</td>
-                                    <td>email</td>
+                                    <td>{{ $ticket->creator }}</td>
+                                    <td>{{ $ticket->email }}</td>
                                     <td>{{ $ticket->department }}</td>
                                     <td><span class="pie">0.52/1.561</span></td>
                                     <td>20%</td>

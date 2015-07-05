@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $fillable = [
-        'name',
+        'creator',
+        'email',
         'department',
         'desc',
     ];
 
     public function user()
     {
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 }
