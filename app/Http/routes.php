@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('/create', 'PublicTicketsController@index');
+Route::post('/create', 'PublicTicketsController@createTicket');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'PagesController@home');
     Route::get('/home', 'PagesController@home');
@@ -22,7 +30,3 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
