@@ -3,11 +3,32 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'Create a Ticket', 'pageLocation' => 'Create A Ticket', 'actionArea' => ''])
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2>Create a Ticket</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li class="active">
+                        <strong>Create Ticket</strong>
+                    </li>
+                </ol>
+            </div>
+        </div>
 
     @endsection
 
     @section('pageContent')
+
+        @if ($errors->any())
+            <ul class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
@@ -36,7 +57,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group"><label class="col-sm-2 control-label">Your Name</label>
 
-                                <div class="col-sm-10"><input type="text" name="creator" class="form-control"></div>
+                                <div class="col-sm-10"><input type="text" name="name" class="form-control"></div>
                             </div>
 
                             <div class="hr-line-dashed"></div>
@@ -59,6 +80,19 @@
                                 </div>
                             </div>
 
+                            <!-- This code should be used elsewhere -->
+                            {{--<div class="form-group"><label class="col-sm-2 control-label">Assignee</label>--}}
+
+                                {{--<div class="col-sm-10"><select class="form-control m-b" name="user_id">--}}
+
+                                        {{--@foreach($users as $user)--}}
+                                            {{--<option value={{ $user->id }}>{{ $user->first_name . ' ' . $user->last_name }}</option>--}}
+                                    {{--@endforeach--}}
+
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+
                             <div class="hr-line-dashed"></div>
 
                             <div class="form-group"><label class="col-sm-2 control-label">Describe Your Issue</label>
@@ -79,14 +113,6 @@
                 </div>
             </div>
         </div>
-
-        @if ($errors->any())
-            <ul class="alert alert-danger">
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
 
     @endsection
 

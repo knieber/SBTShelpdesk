@@ -2,7 +2,24 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'My Tickets', 'pageLocation' => 'My Tickets', 'actionArea' => 'Create Ticket'])
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2>My Tickets</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li class="active">
+                        <strong>My Tickets</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-sm-8">
+                    <div class="title-action">
+                        <a href="/tickets/create" class="btn btn-primary">Create Ticket</a>
+                    </div>
+            </div>
+        </div>
 
     @endsection
 
@@ -16,15 +33,6 @@
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
                             </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
                             <a class="close-link">
                                 <i class="fa fa-times"></i>
                             </a>
@@ -41,9 +49,7 @@
                                     <th>Name </th>
                                     <th>Email </th>
                                     <th>Department </th>
-                                    <th>Completed </th>
-                                    <th>Task</th>
-                                    <th>Date</th>
+                                    <th>Created At</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -54,11 +60,9 @@
 
                                     <td>{{ $ticket->id }}</td>
                                     <td>{{ $ticket->desc }}</td>
-                                    <td>{{ $ticket->creator }}</td>
+                                    <td>{{ $ticket->name }}</td>
                                     <td>{{ $ticket->email }}</td>
                                     <td>{{ $ticket->department }}</td>
-                                    <td><span class="pie">0.52/1.561</span></td>
-                                    <td>20%</td>
                                     <td>{{ $ticket->created_at }}</td>
                                     <td><a href="{{ action('TicketsController@show', [$ticket->id]) }}">View</a></td>
                                 </tr>

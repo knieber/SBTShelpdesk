@@ -14,8 +14,9 @@
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'PagesController@home');
     Route::get('/home', 'PagesController@home');
-    Route::get('profile', 'PagesController@profile');
 
+    Route::get('tickets/all', 'TicketsController@showAll');
+    Route::get('tickets/unassigned', 'TicketsController@unassigned');
     Route::resource('tickets', 'TicketsController');
     Route::resource('profile', 'ProfileController');
 

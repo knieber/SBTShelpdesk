@@ -30,8 +30,9 @@ class TicketsController extends Controller
      */
     public function create()
     {
+        $users = \App\User::all();
 
-        return view('tickets.create');
+        return view('tickets.create', compact('users'));
     }
 
     /**
@@ -39,11 +40,11 @@ class TicketsController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Requests\CreateTicket $request)
     {
         $ticket = new Ticket($request->all());
 
-        \Auth::user()->tickets()->save($ticket);
+        $ticket->save();
 
         return redirect('tickets');
 
@@ -69,6 +70,21 @@ class TicketsController extends Controller
      * @param  int  $id
      * @return Response
      */
+
+    public function showAll()
+    {
+        $tickets = Ticket::all();
+
+        return view('tickets.showAll', compact('tickets'));
+    }
+
+    public function unassigned()
+    {
+        $tickets = Ticket::where('user_id', null)->get();
+
+        return view('tickets.unassigned', compact('tickets'));
+    }
+
     public function edit($id)
     {
         //

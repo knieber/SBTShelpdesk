@@ -2,7 +2,27 @@
 
     @section('pageHeader')
 
-        @include('partials._pageheader', ['header' => 'Profile', 'pageLocation' => 'Profile', 'actionArea' => ''])
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2>Profile</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li>
+                        <a href="">App View</a>
+                    </li>
+                    <li class="active">
+                        <strong>Profile</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-sm-8">
+                    <div class="title-action">
+                        <a href="/{profile}/edit" class="btn btn-primary">Edit Profile</a>
+                    </div>
+            </div>
+        </div>
 
     @endsection
 
@@ -27,20 +47,6 @@
                                 <p>
                                     {{ $user->bio }}
                                 </p>
-                                <div class="row m-t-lg">
-                                    <div class="col-md-4">
-                                        <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
-                                        <h5><strong>169</strong> Tickets Closed</h5>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <span class="line">5,3,9,6,5,9,7,3,5,2</span>
-                                        <h5><strong>28</strong> Tickets Started</h5>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <span class="bar">5,3,2,-1,-3,-2,2,3,5,2</span>
-                                        <h5><strong>20</strong> Tickets Open</h5>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
