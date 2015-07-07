@@ -11,7 +11,7 @@ class PublicTicketsController extends Controller
 {
     public function index()
     {
-        return view('submitTicket');
+        return view('publicTicket');
     }
 
     public function createTicket(Requests\CreateTicket $request)

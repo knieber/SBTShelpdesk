@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class TicketsController extends Controller
 {
@@ -20,7 +20,7 @@ class TicketsController extends Controller
 
         $tickets = \Auth::user()->tickets;
 
-        return view('tickets.view', compact('tickets'));
+        return view('tickets.showMyTickets', compact('tickets'));
     }
 
     /**
@@ -96,9 +96,13 @@ class TicketsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($ticketId, Request $request)
     {
-        //
+        $ticket = Ticket::findOrFail($ticketId);
+
+        $ticket->update($request->all());
+
+        return Redirect::back();
     }
 
     /**

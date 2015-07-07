@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Login 2</title>
+    <title>SBTS | HelpDesk</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 
 <div class="loginColumns animated fadeInDown">
     <h3>Welcome to the SBTS Helpdesk</h3>
+    <p>Please submit a helpdesk ticket and someone will be glad to help you as soon as possible. Once the ticket is started, you'll be notified!</p>
     <div class="row">
         <div class="col-md-12">
             <div class="ibox-content">
@@ -44,12 +45,9 @@
                                 <option>Academic Records</option>
                             </select><span class="help-block m-b-none">Please select a department that you feel can best help with your issue.</span>
 
-
                     </div>
 
                     <div class="form-group">
-
-
                         <textarea style="height:200px" type="text" placeholder="Describe Your Issue" name="desc" class="form-control"></textarea>
                     </div>
 
@@ -59,9 +57,7 @@
                     <p class="text-muted text-center"><small>Are you apart of the SBTS Helpdesk?</small></p>
                     <a class="btn btn-sm btn-white btn-block" href="/auth/login">Login</a>
                 </form>
-                <p class="m-t">
-                    <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
-                </p>
+
             </div>
         </div>
     </div>
