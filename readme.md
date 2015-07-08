@@ -4,7 +4,7 @@ This is a simple helpdesk application used as a side project to test my Laravel/
 
 ## Official Documentation
 
-This design is simply Bootstrap Template made by Inspinia. You can find it here: https://wrapbootstrap.com/theme/inspinia-responsive-admin-theme-WB0R5L90S.
+This design is a Bootstrap template made by Inspinia. You can find it here: https://wrapbootstrap.com/theme/inspinia-responsive-admin-theme-WB0R5L90S.
 
 I am using the Laravel 5.1 framework for this project.
 
