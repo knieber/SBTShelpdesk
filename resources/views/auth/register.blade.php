@@ -35,6 +35,12 @@
                 <input type="text" class="form-control" placeholder="Last Name" name="last_name" required="">
             </div>
             <div class="form-group">
+                <input type="text" class="form-control" placeholder="Position Title" name="position" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Department" name="department" required="">
+            </div>
+            <div class="form-group">
                 <input type="text" class="form-control" placeholder="Username" name="username" required="">
             </div>
             <div class="form-group">

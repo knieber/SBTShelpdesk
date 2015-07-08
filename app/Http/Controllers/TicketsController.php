@@ -17,7 +17,6 @@ class TicketsController extends Controller
      */
     public function index()
     {
-
         $tickets = \Auth::user()->tickets;
 
         return view('tickets.showMyTickets', compact('tickets'));
@@ -47,7 +46,6 @@ class TicketsController extends Controller
         $ticket->save();
 
         return redirect('tickets');
-
     }
 
     /**
@@ -58,7 +56,6 @@ class TicketsController extends Controller
      */
     public function show($id)
     {
-
         $ticket = Ticket::findOrFail($id);
 
         return view('tickets.show', compact('ticket'));
@@ -115,4 +112,5 @@ class TicketsController extends Controller
     {
         //
     }
+
 }

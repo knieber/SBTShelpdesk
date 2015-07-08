@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('tickets/unassigned', 'TicketsController@unassigned');
     Route::resource('tickets', 'TicketsController');
     Route::resource('profile', 'ProfileController');
+    Route::get('/helpdesk/campustickets/{filter}', 'HelpDeskController@allTicketsView');
+    Route::get('/helpdesk/{department}/{filter}', 'HelpDeskController@departmentView');
 
 });
 

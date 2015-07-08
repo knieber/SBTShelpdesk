@@ -18,10 +18,10 @@
                     <tr>
 
                         <th>#</th>
-                        <th>Desc </th>
+                        <th>Details </th>
                         <th>Creator </th>
-                        <th>Email </th>
-                        <th>Department </th>
+                        <th>Creator Email </th>
+                        <th>Intended Department </th>
                         <th>Assignee</th>
                         <th>Created At</th>
                         <th>Action</th>
@@ -34,13 +34,21 @@
 
 
                             <td>{{ $ticket->id }}</td>
-                            <td>{{ $ticket->desc }}</td>
+                            <td>{{ substr($ticket->desc,0,50).'...' }}</td>
                             <td>{{ $ticket->name }}</td>
                             <td>{{ $ticket->email }}</td>
-                            <td>{{ $ticket->department }}</td>
+                            <td>
+                                <?php
+                                    $departmentBefore = str_replace('_', ' ', $ticket->department);
+
+                                    $departmentAfter = ucwords(strtolower($departmentBefore));
+
+                                    echo $departmentAfter;
+                                ?>
+                            </td>
                             <td>
                                 @if(isset($ticket->user->first_name))
-                                {{ $ticket->user->first_name . ' ' . $ticket->user->last_name }}
+                                <a href="/profile/{{ $ticket->user->username }}">{{ $ticket->user->first_name . ' ' . $ticket->user->last_name }}</a>
                                 @endif
                             </td>
                             <td>{{ $ticket->created_at }}</td>
@@ -49,7 +57,7 @@
                                 <form action="/tickets/{{ $ticket->id }}" method="POST">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <input name="_method" type="hidden" value="PUT">
-                                    <select class="form-control" name="user_id" onchange="this.form.submit()">
+                                    <select class="form-control" style="height: 25px" name="user_id" onchange="this.form.submit()">
 
                                         {{ $users = \App\User::all() }}
 

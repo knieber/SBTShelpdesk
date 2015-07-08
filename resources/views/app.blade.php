@@ -33,11 +33,11 @@
                     <div class="dropdown profile-element">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ \Auth::user()->first_name . ' ' . \Auth::user()->last_name }}</strong>
-                             </span> <span class="text-muted text-xs block">Web Developer <b class="caret"></b></span> </span> </a>
+                             </span> <span class="text-muted text-xs block">{{ \Auth::user()->position }}<b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="/profile/{{ \Auth::user()->username }}">Profile</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="/auth/logout">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -57,12 +57,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">App Views</span><span class="fa arrow"></span></a>
+                    <a href="/helpdesk"><i class="fa fa-desktop"></i> <span class="nav-label">Help Desk View</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="/profile/{{ \Auth::user()->username }}">Profile</a></li>
+                        <li><a href="/helpdesk/campustickets/all">All SBTS</a></li>
+                        <li><a href="/helpdesk/campus_technology/unassigned">Campus Technology</a></li>
+                        <li><a href="/helpdesk/admissions/unassigned">Admissions</a></li>
                     </ul>
                 </li>
-
             </ul>
 
         </div>

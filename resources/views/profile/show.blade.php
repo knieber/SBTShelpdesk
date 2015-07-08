@@ -4,7 +4,16 @@
 
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-sm-4">
-                <h2>Profile</h2>
+                <h2>
+                    @if($user->first_name === \Auth::user()->first_name)
+                        My
+                    @else
+                        {{ $user->first_name }}'s
+                    @endif
+
+                    Profile
+
+                </h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="/home">Home</a>
@@ -40,7 +49,10 @@
                             </div>
                             <div class="ibox-content profile-content">
                                 <h4><strong>{{ $user->first_name }} {{ $user->last_name }}</strong></h4>
+                                <p><strong>Department:</strong> {{ $user->department }}</p>
+                                <p><strong>Position title:</strong> {{ $user->position }}</p>
                                 <p><i class="fa fa-map-marker"></i> {{ $user->address }}</p>
+
                                 <h5>
                                     About me
                                 </h5>

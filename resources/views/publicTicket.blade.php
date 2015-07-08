@@ -39,10 +39,10 @@
 
                        <select class="form-control m-b" name="department">
                                 <option value="" disable selected>Select a Department</option>
-                                <option>Campus Technology</option>
-                                <option>Accounting</option>
-                                <option>Admissions</option>
-                                <option>Academic Records</option>
+                                <option value="campus_technology">Campus Technology</option>
+                                <option value="accounting">Accounting</option>
+                                <option value="admissions">Admissions</option>
+                                <option value="academic_records">Academic Records</option>
                             </select><span class="help-block m-b-none">Please select a department that you feel can best help with your issue.</span>
 
                     </div>
