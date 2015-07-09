@@ -70,28 +70,14 @@
 
                             <div class="form-group"><label class="col-sm-2 control-label">Department</label>
 
-                                <div class="col-sm-10"><select class="form-control m-b" name="department">
-                                        <option value="campus_technology">Campus Technology</option>
-                                        <option value="accounting">Accounting</option>
-                                        <option value="admissions">Admissions</option>
-                                        <option value="academic_records">Academic Records</option>
+                                <div class="col-sm-10"><select class="form-control m-b" name="department_id">
+                                        @foreach($departments as $department)
+                                            <option value="{{ $department->id }}">{{ $department->department }}</option>
+                                        @endforeach
                                     </select><span class="help-block m-b-none">Please select a department that you feel can best help with your issue.</span>
 
                                 </div>
                             </div>
-
-                            <!-- This code should be used elsewhere -->
-                            {{--<div class="form-group"><label class="col-sm-2 control-label">Assignee</label>--}}
-
-                                {{--<div class="col-sm-10"><select class="form-control m-b" name="user_id">--}}
-
-                                        {{--@foreach($users as $user)--}}
-                                            {{--<option value={{ $user->id }}>{{ $user->first_name . ' ' . $user->last_name }}</option>--}}
-                                    {{--@endforeach--}}
-
-                                {{--</div>--}}
-                            {{--</div>--}}
-
 
                             <div class="hr-line-dashed"></div>
 

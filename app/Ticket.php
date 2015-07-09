@@ -10,12 +10,17 @@ class Ticket extends Model
         'user_id',
         'name',
         'email',
-        'department',
+        'department_id',
         'desc',
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
     }
 }

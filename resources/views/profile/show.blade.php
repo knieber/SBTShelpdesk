@@ -49,7 +49,7 @@
                             </div>
                             <div class="ibox-content profile-content">
                                 <h4><strong>{{ $user->first_name }} {{ $user->last_name }}</strong></h4>
-                                <p><strong>Department:</strong> {{ $user->department }}</p>
+                                <p><strong>Department:</strong> {{ $user->department->department }}</p>
                                 <p><strong>Position title:</strong> {{ $user->position }}</p>
                                 <p><i class="fa fa-map-marker"></i> {{ $user->address }}</p>
 

@@ -17,7 +17,8 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('department');
+            $table->integer('department_id')->unsigned();
+            $table->foreign('department_id')->references('id')->on('departments');
             $table->string('position');
             $table->string('address')->nullable();
             $table->string('github')->nullable();
@@ -27,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
 
     /**

@@ -59,9 +59,11 @@
                 <li>
                     <a href="/helpdesk"><i class="fa fa-desktop"></i> <span class="nav-label">Help Desk View</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="/helpdesk/campustickets/all">All SBTS</a></li>
+                        <li><a href="/helpdesk/alldepartments/all">All Departments</a></li>
                         <li><a href="/helpdesk/campus_technology/unassigned">Campus Technology</a></li>
                         <li><a href="/helpdesk/admissions/unassigned">Admissions</a></li>
+                        <li><a href="/helpdesk/academic_records/unassigned">Academic Records</a></li>
+                        <li><a href="/helpdesk/accounting/unassigned">Accounting</a></li>
                     </ul>
                 </li>
             </ul>

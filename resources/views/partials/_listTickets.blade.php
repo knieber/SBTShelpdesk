@@ -39,12 +39,26 @@
                             <td>{{ $ticket->email }}</td>
                             <td>
                                 <?php
-                                    $departmentBefore = str_replace('_', ' ', $ticket->department);
-
-                                    $departmentAfter = ucwords(strtolower($departmentBefore));
-
-                                    echo $departmentAfter;
+                                    $departmentCategories = \App\Department::all();
                                 ?>
+
+                                <form action="/tickets/{{ $ticket->id }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input name="_method" type="hidden" value="PUT">
+                                    <select class="form-control" style="height: 25px" name="department_id" onchange="this.form.submit()">
+
+                                        @foreach($departmentCategories as $departmentCategory)
+
+                                            @if($departmentCategory->id == $ticket->department->id)
+                                                <option selected="selected" value="{{ $departmentCategory->id }}"> {{ $departmentCategory->department }}</option>
+                                            @else
+                                            <option value="{{ $departmentCategory->id }}"> {{ $departmentCategory->department }} </option>
+                                            @endif
+
+                                        @endforeach
+                                    </select>
+
+                                </form>
                             </td>
                             <td>
                                 @if(isset($ticket->user->first_name))
@@ -59,12 +73,19 @@
                                     <input name="_method" type="hidden" value="PUT">
                                     <select class="form-control" style="height: 25px" name="user_id" onchange="this.form.submit()">
 
-                                        {{ $users = \App\User::all() }}
+                                        <?php
+                                            $users = \App\User::all();
+                                        ?>
 
                                         <option disabled selected></option>
+                                            @foreach($departmentCategories as $departmentCategory)
+                                                <optgroup label="{{ $departmentCategory->department }}">
 
-                                            @foreach($users as $user)
-                                                <option value={{ $user->id }}>{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                                    @foreach($departmentCategory->users as $user)
+                                                        <option value={{ $user->id }}>{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                                    @endforeach
+
+                                                </optgroup>
                                             @endforeach
 
                                     </select>

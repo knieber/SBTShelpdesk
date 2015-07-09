@@ -26,7 +26,7 @@ class CreateTicket extends Request
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'department' => 'required',
+            'department_id' => 'required',
             'desc' => 'required'
         ];
     }

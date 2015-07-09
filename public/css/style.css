@@ -18,6 +18,7 @@ h1 {
 }
 h2 {
   font-size: 24px;
+    display: inline-block;
 }
 h3 {
   font-size: 16px;
@@ -1798,6 +1799,11 @@ table.dataTable thead .sorting:after {
 }
 .spinner-buttons.input-group-btn {
   width: 20%;
+}
+.header-filter{
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 .noUi-connect {
   background: none repeat scroll 0 0 #1ab394;

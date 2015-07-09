@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
+
+    /**
+     * @return \Illuminate\View\View
+     */
     public function home()
     {
 
@@ -17,6 +21,9 @@ class PagesController extends Controller
         return view('pages.home', compact('name'));
     }
 
+    /**
+     * @return \Illuminate\View\View
+     */
     public function profile()
     {
 

@@ -31,7 +31,9 @@ class TicketsController extends Controller
     {
         $users = \App\User::all();
 
-        return view('tickets.create', compact('users'));
+        $departments = \App\Department::all();
+
+        return view('tickets.create', compact('users', 'departments'));
     }
 
     /**

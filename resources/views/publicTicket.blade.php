@@ -18,12 +18,21 @@
 
 <body class="gray-bg">
 
+
 <div class="loginColumns animated fadeInDown">
     <h3>Welcome to the SBTS Helpdesk</h3>
     <p>Please submit a helpdesk ticket and someone will be glad to help you as soon as possible. Once the ticket is started, you'll be notified!</p>
     <div class="row">
         <div class="col-md-12">
             <div class="ibox-content">
+
+                @if ($errors->any())
+                    <ul class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
 
                 <form method="POST" action="/create" class="m-t">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -37,12 +46,11 @@
 
                     <div class="form-group">
 
-                       <select class="form-control m-b" name="department">
+                       <select class="form-control m-b" name="department_id">
                                 <option value="" disable selected>Select a Department</option>
-                                <option value="campus_technology">Campus Technology</option>
-                                <option value="accounting">Accounting</option>
-                                <option value="admissions">Admissions</option>
-                                <option value="academic_records">Academic Records</option>
+                                    @foreach($departments as $department)
+                                        <option value="{{ $department->id }}">{{ $department->department }}</option>
+                                    @endforeach
                             </select><span class="help-block m-b-none">Please select a department that you feel can best help with your issue.</span>
 
                     </div>

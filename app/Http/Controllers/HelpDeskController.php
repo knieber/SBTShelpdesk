@@ -20,11 +20,13 @@ class HelpDeskController extends Controller
         return view('helpdeskviews.all', compact('tickets', 'filter'));
     }
 
-    public function departmentView($department, $filter)
+    public function departmentView($department_code, $filter)
     {
-        $helpDeskView = new HelpDeskView($department, $filter);
+        $helpDeskView = new HelpDeskView($department_code, $filter);
 
         $tickets = $helpDeskView->departmentViewFilter();
+
+        $department = \App\Department::where('department_code', $department_code)->first();
 
         return view('helpdeskviews.department', compact('department', 'tickets', 'filter'));
     }
