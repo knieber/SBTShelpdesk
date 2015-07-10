@@ -28,6 +28,14 @@ class HelpDeskView
             $view = \App\Ticket::all();
         } elseif ($this->filter === 'unassigned') {
             $view = \App\Ticket::where('user_id', null)->get();
+        } elseif ($this->filter === 'open') {
+            $view = \App\Ticket::where('status', $this->filter)->get();
+        } elseif ($this->filter === 'closed') {
+            $view = \App\Ticket::where('status', $this->filter)->get();
+        } elseif ($this->filter === 'started') {
+            $view = \App\Ticket::where('activity', $this->filter)->get();
+        } elseif ($this->filter === 'not_started') {
+            $view = \App\Ticket::where('activity', $this->filter)->get();
         }
 
         return $view;
@@ -49,7 +57,22 @@ class HelpDeskView
             $department = \App\Department::where('department_code', $this->department_code)->first();
 
             $view = $department->tickets()->where('user_id', null)->get();
+        } elseif ($this->filter === 'open') {
+            $department = \App\Department::where('department_code', $this->department_code)->first();
 
+            $view = $department->tickets()->where('status', $this->filter)->get();
+        } elseif ($this->filter === 'close') {
+            $department = \App\Department::where('department_code', $this->department_code)->first();
+
+            $view = $department->tickets()->where('status', $this->filter)->get();
+        } elseif ($this->filter === 'started') {
+            $department = \App\Department::where('department_code', $this->department_code)->first();
+
+            $view = $department->tickets()->where('activity', $this->filter)->get();
+        } elseif ($this->filter === 'not_started') {
+            $department = \App\Department::where('department_code', $this->department_code)->first();
+
+            $view = $department->tickets()->where('activity', $this->filter)->get();
         }
 
         return $view;

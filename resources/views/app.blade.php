@@ -17,6 +17,9 @@
     <!-- Gritter -->
     <link href="/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
+    <!-- X-Editable -->
+    <link href="/js/plugins/xeditable/bootstrap3/css/bootstrap-editable.css" rel="stylesheet">
+
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
@@ -51,8 +54,6 @@
                     <a href="/tickets"><i class="fa fa-diamond"></i> <span class="nav-label">Tickets</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="/tickets">My Tickets</a></li>
-                        <li><a href="/tickets/all">All Tickets</a></li>
-                        <li><a href="/tickets/unassigned">Unassigned Tickets</a></li>
                         <li><a href="/tickets/create">Create Ticket</a></li>
                     </ul>
                 </li>
@@ -210,6 +211,13 @@
 <!-- Toastr -->
 <script src="/js/plugins/toastr/toastr.min.js"></script>
 
+<!-- AJAX -->
+<script src="/js/ajax-helpers.js"></script>
+
+<!-- X-Editable -->
+<script src="/js/plugins/xeditable/bootstrap3/js/bootstrap-editable.min.js"></script>
+
+@yield('javascript_content')
 
 
 </body>

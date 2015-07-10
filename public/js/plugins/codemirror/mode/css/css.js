@@ -150,7 +150,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
       return popContext(state);
     } else if (type == "@media") {
       return pushContext(state, stream, "media");
-    } else if (type == "@font-face") {
+    } else if (type == "@fonts-face") {
       return "font_face_before";
     } else if (/^@(-(moz|ms|o|webkit)-)?keyframes$/.test(type)) {
       return "keyframes";
@@ -401,11 +401,11 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     "drop-initial-before-align", "drop-initial-size", "drop-initial-value",
     "elevation", "empty-cells", "fit", "fit-position", "flex", "flex-basis",
     "flex-direction", "flex-flow", "flex-grow", "flex-shrink", "flex-wrap",
-    "float", "float-offset", "flow-from", "flow-into", "font", "font-feature-settings",
-    "font-family", "font-kerning", "font-language-override", "font-size", "font-size-adjust",
-    "font-stretch", "font-style", "font-synthesis", "font-variant",
-    "font-variant-alternates", "font-variant-caps", "font-variant-east-asian",
-    "font-variant-ligatures", "font-variant-numeric", "font-variant-position",
+    "float", "float-offset", "flow-from", "flow-into", "font", "fonts-feature-settings",
+    "font-family", "fonts-kerning", "fonts-language-override", "font-size", "fonts-size-adjust",
+    "fonts-stretch", "font-style", "fonts-synthesis", "fonts-variant",
+    "fonts-variant-alternates", "fonts-variant-caps", "fonts-variant-east-asian",
+    "fonts-variant-ligatures", "fonts-variant-numeric", "fonts-variant-position",
     "font-weight", "grid", "grid-area", "grid-auto-columns", "grid-auto-flow",
     "grid-auto-position", "grid-auto-rows", "grid-column", "grid-column-end",
     "grid-column-start", "grid-row", "grid-row-end", "grid-row-start",
@@ -584,8 +584,8 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
   ], valueKeywords = keySet(valueKeywords_);
 
   var fontProperties_ = [
-    "font-family", "src", "unicode-range", "font-variant", "font-feature-settings",
-    "font-stretch", "font-weight", "font-style"
+    "font-family", "src", "unicode-range", "fonts-variant", "fonts-feature-settings",
+    "fonts-stretch", "font-weight", "font-style"
   ], fontProperties = keySet(fontProperties_);
 
   var allWords = mediaTypes_.concat(mediaFeatures_).concat(propertyKeywords_)

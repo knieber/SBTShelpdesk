@@ -7,13 +7,16 @@
             <div>
             <h2>All Departments</h2>
             <div class="input-group-btn header-filter">
-                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">{{ ucwords(strtolower($filter)) }}<span class="caret"></span></button>
+                <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">{{ ucwords(strtolower($filter)) }} Tickets<span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="/helpdesk/alldepartments/all">All</a></li>
-                    <li><a href="/helpdesk/alldepartments/unassigned">Unassigned</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="/helpdesk/alldepartments/all">All Tickets</a></li>
+                    <li><a href="/helpdesk/alldepartments/unassigned">Unassigned Tickets</a></li>
+                    <li><a href="/helpdesk/alldepartments/open">Open Tickets</a></li>
+                    <li><a href="/helpdesk/alldepartments/closed">Closed Tickets</a></li>
+                    <li><a href="/helpdesk/alldepartments/started">Started Tickets</a></li>
+                    <li><a href="/helpdesk/alldepartments/not_started">Not Started Tickets</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="/tickets">My Tickets</a></li>
                 </ul>
             </div>
             </div>

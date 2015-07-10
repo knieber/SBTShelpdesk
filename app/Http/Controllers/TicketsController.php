@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class TicketsController extends Controller
 {
@@ -70,19 +72,7 @@ class TicketsController extends Controller
      * @return Response
      */
 
-    public function showAll()
-    {
-        $tickets = Ticket::all();
 
-        return view('tickets.showAll', compact('tickets'));
-    }
-
-    public function unassigned()
-    {
-        $tickets = Ticket::where('user_id', null)->get();
-
-        return view('tickets.unassigned', compact('tickets'));
-    }
 
     public function edit($id)
     {
@@ -97,12 +87,34 @@ class TicketsController extends Controller
      */
     public function update($ticketId, Request $request)
     {
+
         $ticket = Ticket::findOrFail($ticketId);
 
         $ticket->update($request->all());
 
         return Redirect::back();
+
     }
+
+    public function ajaxUpdate()
+    {
+        $ticketId = Input::get('pk');
+
+        $ticket = Ticket::findOrFail($ticketId);
+
+        $newValue = Input::get('value');
+
+        $ticketColumn = Input::get('name');
+
+        $ticket->$ticketColumn = $newValue;
+
+        if ($ticket->save()) {
+            return Response::json(array('status' => 1));
+        } else {
+            return Response::json(array('status' => 0));
+        }
+    }
+
 
     /**
      * Remove the specified resource from storage.

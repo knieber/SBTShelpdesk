@@ -23,10 +23,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'PagesController@home');
     Route::get('/home', 'PagesController@home');
 
-    Route::get('tickets/all', 'TicketsController@showAll');
-    Route::get('tickets/unassigned', 'TicketsController@unassigned');
-    Route::resource('tickets', 'TicketsController');
-    Route::resource('profile', 'ProfileController');
+    Route::put('/tickets/ajax', 'TicketsController@ajaxUpdate');
+    Route::resource('/tickets', 'TicketsController');
+    Route::resource('/profile', 'ProfileController');
     Route::get('/helpdesk/alldepartments/{filter}', 'HelpDeskController@allTicketsView');
     Route::get('/helpdesk/{department_code}/{filter}', 'HelpDeskController@departmentView');
 

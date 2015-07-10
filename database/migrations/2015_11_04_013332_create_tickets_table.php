@@ -21,6 +21,8 @@ class CreateTicketsTable extends Migration
             $table->foreign('department_id')->references('id')->on('departments');
             $table->string('name');
             $table->text('desc');
+            $table->string('status')->default('open');
+            $table->string('activity')->default('not_started');
             $table->timestamps();
 
 
