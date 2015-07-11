@@ -36,32 +36,39 @@
                                     </div>
                                     <dl class="dl-horizontal">
 
-                                        @if($ticket->status === 'open')
+
                                             <dt>Status:</dt>
 
-                                            {{--<dd><span class="label label-primary">{{ ucwords(strtolower($ticket->status)) }}</span></dd>--}}
+                                            <dd id="status-display" >
+                                                @if($ticket->status === 'open')
+                                                    <span href="#" id="status" status="{{ $ticket->status }}" data-type="select" data-pk="{{ $ticket->id }}" class="btn btn-sm btn-primary" data-url="/tickets/ajax" data-title="Select Status">{{ ucwords(strtolower($ticket->status)) }} | <span class="fa fa-chevron-down"></span></span>
+                                                @else
+                                                    <span href="#" id="status" status="{{ $ticket->status }}" data-type="select" data-pk="{{ $ticket->id }}" data-url="/tickets/ajax" class="btn btn-sm btn-danger" data-title="Select Status">{{ ucwords(strtolower($ticket->status)) }} | <span class="fa fa-chevron-down"></span></span>
+                                                @endif
+                                                    <meta name="_token" content="{{ csrf_token() }}" />
+                                            </dd>
 
-                                            <dd><a href="#" id="status" status="{{ $ticket->status }}" data-type="select" data-pk="{{ $ticket->id }}" data-url="/tickets/ajax" data-title="Select status">{{ ucwords(strtolower($ticket->status)) }}</a></dd>
-                                            <meta name="_token" content="{{ csrf_token() }}" />
-                                        @else
-                                            <dt>Status:</dt>
-                                            {{--<dd><span class="label label-danger">{{ ucwords(strtolower($ticket->status)) }}</span></dd>--}}
 
-                                            <dd><a href="#" id="status" status="{{ $ticket->status }}" data-type="select" data-pk="{{ $ticket->id }}" data-url="/tickets/ajax" data-title="Select status">{{ ucwords(strtolower($ticket->status)) }}</a></dd>
-                                            <meta name="_token" content="{{ csrf_token() }}" />
-                                        @endif
 
                                     </dl>
 
-                                    @unless($ticket->status === 'closed')
-                                        <dl class="dl-horizontal">
-                                            @if($ticket->activity === 'started')
-                                                <dt>Activity:</dt> <dd><span class="label label-primary">{{ ucwords(str_replace('_', ' ', strtolower($ticket->activity))) }}</span></dd>
-                                            @else
-                                                <dt>Activity:</dt> <dd><span class="label label-danger">{{ ucwords(str_replace('_', ' ', strtolower($ticket->activity))) }}</span></dd>
-                                            @endif
-                                        </dl>
-                                    @endunless
+
+                                    <dl id="activity-display" class="dl-horizontal" @unless($ticket->status === 'open') style="display: none" @endunless>
+
+                                            <dt>Activity:</dt>
+
+                                            <dd>
+                                                @if($ticket->activity === 'started')
+                                                     <span id="activity" activity="{{ $ticket->activity }}" data-type="select" data-pk="{{$ticket->id}}" class="btn btn-sm btn-primary" data-url="/tickets/ajax" data-title="Select Activity Status">{{ ucwords(str_replace('_', ' ', strtolower($ticket->activity))) }}</span>
+                                                @else
+                                                     <span id="activity" activity="{{ $ticket->activity }}" data-type="select" data-pk="{{$ticket->id}}" class="btn btn-sm btn-danger" data-url="/tickets/ajax" data-title="Select Activity Status">{{ ucwords(str_replace('_', ' ', strtolower($ticket->activity))) }}</span>
+                                                @endif
+                                                    <meta name="_token" content="{{ csrf_token() }}" />
+                                            </dd>
+
+
+                                    </dl>
+
 
                                 </div>
                             </div>
@@ -121,6 +128,34 @@
                         {value: 'closed', text: 'Closed'},
                     ],
                     send:'always',
+                    success: function(response, newValue) {
+                        if(newValue === 'open') {
+                            $('#status').removeClass('btn-danger').addClass('btn-primary');
+                            $('#activity-display').show();
+                        } else if (newValue === 'closed') {
+                            $('#status').removeClass('btn-primary').addClass('btn-danger');
+                            $('#activity-display').hide();
+                        }
+                    },
+                    highlight: null
+                });
+
+                $('#activity').editable({
+
+                    value: $('#activity').attr('activity'),
+                    source: [
+                        {value: 'started', text: 'Started'},
+                        {value: 'not_started', text: 'Not Started'},
+                    ],
+                    send:'always',
+                    success: function(response, newValue) {
+                        if(newValue === 'started') {
+                            $('#activity').removeClass('btn-danger').addClass('btn-primary');
+                        } else if (newValue === 'not_started') {
+                            $('#activity').removeClass('btn-primary').addClass('btn-danger')
+                        }
+                    },
+                    highlight: null
                 });
 
             });
