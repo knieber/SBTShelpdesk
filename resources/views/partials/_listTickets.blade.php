@@ -6,9 +6,6 @@
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
                 </a>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
             </div>
         </div>
         <div class="ibox-content">
@@ -34,7 +31,7 @@
 
 
                             <td>{{ $ticket->id }}</td>
-                            <td>{{ substr($ticket->desc,0,50).'...' }}</td>
+                            <td>{{ substr($ticket->desc,0,50) . '...' }}</td>
                             <td>{{ $ticket->name }}</td>
                             <td>{{ $ticket->email }}</td>
                             <td>

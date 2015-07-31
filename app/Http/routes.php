@@ -28,6 +28,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/profile', 'ProfileController');
     Route::get('/helpdesk/alldepartments/{filter}', 'HelpDeskController@allTicketsView');
     Route::get('/helpdesk/{department_code}/{filter}', 'HelpDeskController@departmentView');
-
 });
-

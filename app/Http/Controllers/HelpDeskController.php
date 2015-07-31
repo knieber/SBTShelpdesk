@@ -30,5 +30,4 @@ class HelpDeskController extends Controller
 
         return view('helpdeskviews.department', compact('department', 'tickets', 'filter'));
     }
-
 }
