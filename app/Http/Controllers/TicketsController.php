@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\TicketFilter;
 use App\Ticket;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
@@ -66,14 +68,24 @@ class TicketsController extends Controller
     }
 
     /**
+     * @param $filter
+     * @return \Illuminate\View\View
+     */
+    public function ticketFilter($filter)
+    {
+        $ticketFilter = new TicketFilter(null, $filter);
+
+        $tickets = $ticketFilter->myTicketsFilter();
+
+        return view('tickets.showMyTickets', compact('tickets', 'filter'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-
-
-
     public function edit($id)
     {
         //
@@ -96,8 +108,9 @@ class TicketsController extends Controller
 
     }
 
-    public function ajaxUpdate()
+    public function xEditableUpdate()
     {
+
         $ticketId = Input::get('pk');
 
         $ticket = Ticket::findOrFail($ticketId);
@@ -109,10 +122,22 @@ class TicketsController extends Controller
         $ticket->$ticketColumn = $newValue;
 
         if ($ticket->save()) {
+            if ($newValue === 'closed') {
+                Mail::send('emails.ticketClosed', [], function ($message) {
+                    $email = Input::get('email');
+                    $message->to($email)->subject('test');
+                });
+            } elseif ($newValue === 'started') {
+                Mail::send('emails.ticketStarted', [], function ($message) {
+                    $email = Input::get('email');
+                    $message->to($email)->subject('test');
+                });
+            }
             return Response::json(array('status' => 1));
         } else {
             return Response::json(array('status' => 0));
         }
+
     }
 
 

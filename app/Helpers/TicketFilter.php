@@ -2,15 +2,14 @@
 
 namespace App\Helpers;
 
-
-class HelpDeskView
+class TicketFilter
 {
 
     public $department_code;
     public $filter;
 
     /**
-     * @param $department
+     * @param $department_code
      * @param $filter
      */
     public function __construct($department_code, $filter)
@@ -40,6 +39,26 @@ class HelpDeskView
 
         return $view;
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function myTicketsFilter()
+    {
+        if ($this->filter === 'all') {
+            $view = \Auth::user()->tickets;
+        } elseif ($this->filter === 'open') {
+            $view = \App\Ticket::where('status', $this->filter)->where('user_id', \Auth::user()->id)->get();
+        } elseif ($this->filter === 'closed') {
+            $view = \App\Ticket::where('status', $this->filter)->where('user_id', \Auth::user()->id)->get();
+        } elseif ($this->filter === 'started') {
+            $view = \App\Ticket::where('activity', $this->filter)->where('user_id', \Auth::user()->id)->get();
+        } elseif ($this->filter === 'not_started') {
+            $view = \App\Ticket::where('activity', $this->filter)->where('user_id', \Auth::user()->id)->get();
+        }
+
+        return $view;
     }
 
 

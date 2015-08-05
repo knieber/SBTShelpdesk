@@ -6,25 +6,25 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use \App\Helpers\HelpDeskView;
+use \App\Helpers\TicketFilter;
 use App\Ticket;
 
 class HelpDeskController extends Controller
 {
     public function allTicketsView($filter)
     {
-        $helpDeskView = new HelpDeskView(null, $filter);
+        $ticketFilter = new TicketFilter(null, $filter);
 
-        $tickets = $helpDeskView->allViewFilter();
+        $tickets = $ticketFilter->allViewFilter();
 
         return view('helpdeskviews.all', compact('tickets', 'filter'));
     }
 
     public function departmentView($department_code, $filter)
     {
-        $helpDeskView = new HelpDeskView($department_code, $filter);
+        $ticketFilter = new TicketFilter($department_code, $filter);
 
-        $tickets = $helpDeskView->departmentViewFilter();
+        $tickets = $ticketFilter->departmentViewFilter();
 
         $department = \App\Department::where('department_code', $department_code)->first();
 

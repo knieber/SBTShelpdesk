@@ -29,7 +29,6 @@
                     @foreach($tickets as $ticket)
                         <tr>
 
-
                             <td>{{ $ticket->id }}</td>
                             <td>{{ substr($ticket->desc,0,50) . '...' }}</td>
                             <td>{{ $ticket->name }}</td>

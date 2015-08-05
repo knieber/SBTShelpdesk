@@ -51,11 +51,10 @@
                     <a href="/home"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="/tickets"><i class="fa fa-diamond"></i> <span class="nav-label">Tickets</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="/tickets">My Tickets</a></li>
-                        <li><a href="/tickets/create">Create Ticket</a></li>
-                    </ul>
+                    <a href="/tickets/filter/all"><i class="fa fa-diamond"></i> <span class="nav-label">My Tickets</span></a>
+                </li>
+                <li>
+                    <a href="/tickets/create"><i class="fa fa-diamond"></i> <span class="nav-label">Create Ticket</span></a>
                 </li>
                 <li>
                     <a href="/helpdesk"><i class="fa fa-desktop"></i> <span class="nav-label">Help Desk View</span><span class="fa arrow"></span></a>

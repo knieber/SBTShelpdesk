@@ -23,9 +23,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'PagesController@home');
     Route::get('/home', 'PagesController@home');
 
-    Route::put('/tickets/ajax', 'TicketsController@ajaxUpdate');
+    Route::put('/tickets/ajax', 'TicketsController@xEditableUpdate');
     Route::resource('/tickets', 'TicketsController');
     Route::resource('/profile', 'ProfileController');
+    Route::get('/tickets/filter/{filter}', 'TicketsController@ticketFilter');
     Route::get('/helpdesk/alldepartments/{filter}', 'HelpDeskController@allTicketsView');
     Route::get('/helpdesk/{department_code}/{filter}', 'HelpDeskController@departmentView');
 });
